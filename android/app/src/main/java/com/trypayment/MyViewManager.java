@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
@@ -17,7 +18,8 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
-
+import com.paymentez.android.Paymentez;
+import com.paymentez.android.view.CardMultilineWidget;
 import java.util.Map;
 
 public class MyViewManager extends SimpleViewManager<LinearLayout> {
@@ -40,8 +42,15 @@ public class MyViewManager extends SimpleViewManager<LinearLayout> {
     public LinearLayout createViewInstance(ThemedReactContext context) {
         LayoutInflater inflater =(LayoutInflater) reactContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.fragment_face_capture,null);
+//        CardMultilineWidget card=linearLayout.findViewById(R.id.card_multiline_widget);
+//        linearLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context,"Hey I am clicked",Toast.LENGTH_LONG).show();
+//            }
+//        });
+       // Paymentez.setEnvironment(true, Constan,"");
         return linearLayout; //If your customview has more constructor parameters pass it from here.
-
     }
 
 }

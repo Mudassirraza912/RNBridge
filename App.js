@@ -12,7 +12,8 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  UIManager
+  UIManager,
+  Button
 } from 'react-native';
 
 import {
@@ -32,48 +33,29 @@ import MyViewManager from './CustomView';
 class App extends React.Component {
   nativeComponentRef;
 
-  // componentDidMount () {
-  //   setTimeout(() => {
-  //       this.create()
-  //   }, 2000)
-  // }
-
-
-  // findId() {
-  //   contex
-  //   const androidViewId = findNodeHandle(this.androidFragment);
-  //   console.log("Native android view", androidViewId)
-  // }
-
-  // create() {
-  //   const androidViewId = findNodeHandle(this.nativeComponentRef)
-  //   console.log("Native android view id", androidViewId)
-
-  //   UIManager.dispatchViewManagerCommand(
-  //     androidViewId,
-  //     UIManager.MyView.Commands.create.toString(),
-  //     [androidViewId],
-  //   );
-  // }
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      showNativeComponent:false
+    }
+  }
 
 
 
 
   render () {
     console.log("MyViewManager MyViewManager", MyViewManager)
+    const { showNativeComponent } = this.state
     return(
       <View>
-        {/* <Button onPress={() => {
-                PaymentezCustomModule.createCalendarEvent('Mudassir', 'Raza', (status) => {
-                  console.log('Result ',status);
-                 })
+        <Button onPress={() => {
+                this.setState({showNativeComponent: !showNativeComponent})
+                // PaymentezCustomModule.createCalendarEvent('Mudassir', 'Raza', (status) => {
+                //   console.log('Result ',status);
+                //  })
             }} title="Create Calender" />
-          <TESTINGUI 
-          ref={(nativeRef) => this.nativeComponentRef = nativeRef}
-          />
-           */}
-           <MyViewManager style={{height:"100%", width: "100%"}} />
+          
+          {showNativeComponent && <MyViewManager style={{height:"100%", width: "100%"}} />}
       </View>
     )
   }
