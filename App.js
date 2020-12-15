@@ -12,25 +12,16 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
-  StatusBar,
-  NativeModules,
-  Button,
-  requireNativeComponent,
-  findNodeHandle,
   UIManager
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const { PaymentezCustomModule } = NativeModules;
-const TESTINGUI =  requireNativeComponent('TESTINGUI')
+// const { PaymentezCustomModule } = NativeModules;
+// const TESTINGUI =  requireNativeComponent('TESTINGUI')
+import MyViewManager from './CustomView';
 
 // const commandName = "create"
 // const argument=[]
@@ -70,9 +61,10 @@ class App extends React.Component {
 
 
   render () {
+    console.log("MyViewManager MyViewManager", MyViewManager)
     return(
       <View>
-        <Button onPress={() => {
+        {/* <Button onPress={() => {
                 PaymentezCustomModule.createCalendarEvent('Mudassir', 'Raza', (status) => {
                   console.log('Result ',status);
                  })
@@ -80,11 +72,8 @@ class App extends React.Component {
           <TESTINGUI 
           ref={(nativeRef) => this.nativeComponentRef = nativeRef}
           />
-                <Button onPress={() => {
-                PaymentezCustomModule.createCalendarEvent('Mudassir', 'Raza', (status) => {
-                  console.log('Result ',status);
-                 })
-            }} title="Create Calender" />
+           */}
+           <MyViewManager style={{height:"100%", width: "100%"}} />
       </View>
     )
   }
