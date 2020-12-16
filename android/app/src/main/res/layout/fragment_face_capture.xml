@@ -6,19 +6,32 @@
     android:id="@+id/linearlayout1"
     android:orientation="vertical"
 
-    android:background="#bdbdbd"
+    android:background="#000"
     >
 <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="hello world"/>-->
     <com.paymentez.android.view.CardMultilineWidget
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:theme="@style/Theme.AppCompat"
         android:id="@+id/card_multiline_widget"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
+        app:shouldShowPostalCode="true"
+        app:shouldShowPaymentezLogo="true"
+        app:shouldShowCardHolderName="true"
+        app:shouldShowScanCard="true"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:layout_width="213dp"
+        android:layout_height="95dp"
+        android:text="CLick me"
+        android:textColor="#000"
+        android:id="@+id/btn"
+
+        />
 
 
 </LinearLayout>
